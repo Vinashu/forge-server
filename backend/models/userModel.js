@@ -18,11 +18,6 @@ const userSchema = mongoose.Schema({
         type: Boolean,
         required: true,
         default: false
-    },
-    rewards: {
-        type: Array,
-        required: true,
-        default: []
     }
 }, {timestamps: true});
 
