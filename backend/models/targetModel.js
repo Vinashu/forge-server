@@ -26,7 +26,7 @@ const targetSchema = mongoose.Schema({
         required: [true, 'Please choose a reward']
     },
     value: {
-        type: Number,
+        type: String,
         required: [true, 'Please add a value']
     }
 }, {timestamps: true});
