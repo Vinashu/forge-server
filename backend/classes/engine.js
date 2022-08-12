@@ -263,16 +263,4 @@ app.post('/api/rewards', (req, res) => {
     }
 });
 
-app.get('/images/:image', (req, res) => {
-    const { image } = req.params;
-    //Check if the image exists
-    fs.access(imagePath + image, fs.F_OK, (err) => {
-        if(err) {
-            //Send the "not found" image
-            res.sendFile(imagePath + NOT_FOUND);            
-        } else {
-            //Send the image
-            res.sendFile(imagePath + image);
-        }
-    })
-});
+
