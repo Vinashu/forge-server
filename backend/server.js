@@ -19,6 +19,7 @@ app.use('/api/categories', require('./routes/categoryRoutes'));
 app.use('/api/variables', require('./routes/variableRoutes'));
 app.use('/api/operations', require('./routes/operationRoutes'));
 app.use('/api/rewards', require('./routes/rewardRoutes'));
+app.use('/api/targets', require('./routes/targetRoutes'));
 
 // Serve Frontend
 if(process.env.NODE_ENV === 'production') {
