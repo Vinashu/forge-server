@@ -2,12 +2,12 @@ const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
-const Category = require('../models/categoryModel');
+const Variable = require('../models/variableModel');
 
-// @desc    Get categories
-// @route   GET /api/categories
+// @desc    Get variables
+// @route   GET /api/variables
 // @access  Private
-const getCategories = asyncHandler(async (req, res) => {
+const getVariables = asyncHandler(async (req, res) => {
     // Get user using the id in the JWT
     const user = await User.findById(req.user.id);
 
@@ -16,15 +16,15 @@ const getCategories = asyncHandler(async (req, res) => {
         throw new Error("User not found")
     }
 
-    const categories = await Category.find({});
+    const variables = await Variable.find({});
 
-    res.status(200).json(categories);
+    res.status(200).json(variables);
 });
 
-// @desc    Get category
-// @route   GET /api/categories/:id
+// @desc    Get variable
+// @route   GET /api/variables/:id
 // @access  Private
-const getCategory = asyncHandler(async (req, res) => {
+const getVariable = asyncHandler(async (req, res) => {
     // Get user using the id in the JWT
     const user = await User.findById(req.user.id);
 
@@ -33,20 +33,20 @@ const getCategory = asyncHandler(async (req, res) => {
         throw new Error("User not found");
     }
 
-    const category = await Category.findById(req.params.id);
+    const variable = await Variable.findById(req.params.id);
 
-    if(!category) {
+    if(!variable) {
         res.status(404);
-        throw new Error("Category not found");
+        throw new Error("Variable not found");
     }
 
-    res.status(200).json(category);
+    res.status(200).json(variable);
 });
 
-// @desc    Register a new category
-// @route   POST /api/categories
+// @desc    Register a new variable
+// @route   POST /api/variables
 // @access  Private
-const registerCategory = asyncHandler(async (req, res) => {
+const registerVariable = asyncHandler(async (req, res) => {
     const { name, description } = req.body;
 
     // Validation
@@ -63,24 +63,24 @@ const registerCategory = asyncHandler(async (req, res) => {
         throw new Error("User not found")
     }
 
-    // Create category
-    const category = await Category.create({
+    // Create variable
+    const variable = await Variable.create({
         name, 
         description
     });
 
-    if(category) {
-        res.status(201).json(category);
+    if(variable) {
+        res.status(201).json(variable);
     } else {
         res.status(400);
         throw new Error('Invalid user data.');
     }
 });
 
-// @desc    Delete category
-// @route   DELETE /api/categories/:id
+// @desc    Delete variable
+// @route   DELETE /api/variables/:id
 // @access  Private
-const deleteCategory = asyncHandler(async (req, res) => {
+const deleteVariable = asyncHandler(async (req, res) => {
     // Get user using the id in the JWT
     const user = await User.findById(req.user.id);
 
@@ -89,14 +89,14 @@ const deleteCategory = asyncHandler(async (req, res) => {
         throw new Error("User not found");
     }
 
-    const category = await Category.findById(req.params.id);
+    const variable = await Variable.findById(req.params.id);
 
-    if(!category) {
+    if(!variable) {
         res.status(404);
-        throw new Error("Category not found");        
+        throw new Error("Variable not found");        
     }
 
-    await category.remove();
+    await variable.remove();
 
     res.status(200).json({
         success: true,
@@ -104,10 +104,10 @@ const deleteCategory = asyncHandler(async (req, res) => {
     });
 });
 
-// @desc    Update category
-// @route   Put /api/categories/:id
+// @desc    Update variable
+// @route   Put /api/variables/:id
 // @access  Private
-const updateCategory = asyncHandler(async (req, res) => {
+const updateVariable = asyncHandler(async (req, res) => {
     // Get user using the id in the JWT
     const user = await User.findById(req.user.id);
 
@@ -116,26 +116,26 @@ const updateCategory = asyncHandler(async (req, res) => {
         throw new Error("User not found");
     }
 
-    const category = await Category.findById(req.params.id);
+    const variable = await Variable.findById(req.params.id);
 
-    if(!category) {
+    if(!variable) {
         res.status(404);
-        throw new Error("Category not found");        
+        throw new Error("Variable not found");        
     }
 
-    const updatedCategory = await Category.findByIdAndUpdate(
+    const updatedVariable = await Variable.findByIdAndUpdate(
         req.params.id,
         req.body,
         {new: true}
         );
 
-    res.status(200).json(updatedCategory);
+    res.status(200).json(updatedVariable);
 });
 
 module.exports = { 
-    getCategories,
-    getCategory,
-    registerCategory,
-    deleteCategory, 
-    updateCategory
+    getVariables, 
+    getVariable, 
+    registerVariable, 
+    deleteVariable, 
+    updateVariable
 };
