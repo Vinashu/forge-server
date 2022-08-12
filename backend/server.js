@@ -4,7 +4,7 @@ const express = require('express')
 const {errorHandler} = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
 const colors = require('colors');
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 6001;
 
 // Connect to database
 connectDB();
@@ -15,6 +15,7 @@ app.use(express.urlencoded({extended: true}));
 
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/categories', require('./routes/categoryRoutes'));
 
 // Serve Frontend
 if(process.env.NODE_ENV === 'production') {
