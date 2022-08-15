@@ -1,8 +1,6 @@
 // eslint-disable-next-line
 export { default as Home } from './Home';
 // eslint-disable-next-line
-export { default as Category } from './Category';
-// eslint-disable-next-line
 export { default as Operation } from './Operation';
 // eslint-disable-next-line
 export { default as Reward } from './Reward';

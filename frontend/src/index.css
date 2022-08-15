@@ -20,3 +20,8 @@ nav {
     color: white;
     text-decoration: none;
   }
+
+.center {
+    text-align: center;
+    align-items: top;
+}
