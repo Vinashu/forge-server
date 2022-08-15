@@ -3,7 +3,8 @@ import {ToastContainer} from 'react-toastify';
 import {Container} from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  	Header
+  	Header,
+	PrivateRoute
 } from './components';
 import {
 	Home,
@@ -12,8 +13,7 @@ import {
 	Operation,
 	Reward,
 	Target,
-	Variable,
-	Logout
+	Variable
 } from './pages';
 import {
 	Category,
@@ -29,27 +29,36 @@ function App() {
 			<Header />
 			<Container >
 				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='home' element={<Home />} />
-					<Route path='login' element={<Login />} />
-					<Route path='register' element={<Register />} />
-					<Route path='category' element={<Category />} >
-						<Route path="add" element={<CategoryAdd />} />
-						<Route path=":id" element={<CategoryDetail />} />
-						<Route path=":id/edit" element={<CategoryEdit />} />						
-						<Route path=":id/detail" element={<CategoryDetail />} />
+					<Route path='/' element={<PrivateRoute />} >
+						<Route path='/' element={<Home />} />
 					</Route>
-					<Route path='operation' element={<Operation />} />
-					<Route path='reward' element={<Reward />} />
-					<Route path='target' element={<Target />} />
-					<Route path='variable' element={<Variable />} />
-					<Route path='logout' element={<Logout />} />
-				</Routes>
-			<Container >
-				<Routes>
-					<Route path='/logout' element={<Target />} />
-				</Routes>
-			</Container>					
+					<Route path='/home' element={<PrivateRoute />} >
+						<Route path='/home' element={<Home />} />
+					</Route>
+					<Route path='/category' element={<PrivateRoute />} >
+						<Route path='/category' element={<Category />} >
+							<Route path="add" element={<CategoryAdd />} />
+							<Route path=":id" element={<CategoryDetail />} />
+							<Route path=":id/edit" element={<CategoryEdit />} />						
+							<Route path=":id/detail" element={<CategoryDetail />} />
+						</Route>
+					</Route>
+					<Route path='/operation' element={<PrivateRoute />} >
+						<Route path='/operation' element={<Operation />} />
+					</Route>
+					<Route path='/variable' element={<PrivateRoute />} >
+						<Route path='/variable' element={<Variable />} />
+					</Route>
+					<Route path='/reward' element={<PrivateRoute />} >						
+						<Route path='/reward' element={<Reward />} />
+					</Route>
+					<Route path='/target' element={<PrivateRoute />} >						
+						<Route path='/target' element={<Target />} />
+					</Route>						
+					{/* <Route path='logout' element={<Logout />} /> */}
+					<Route path='login' element={<Login />} />
+					<Route path='register' element={<Register />} />					
+				</Routes>			
 			</Container>
 		</Router>
 		<ToastContainer />

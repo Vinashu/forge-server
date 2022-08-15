@@ -1,30 +1,68 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { Button, Row } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { get, remove, resetStatus } from '../../features/category/categorySlice';
+import { Button, Row, Spinner, Badge, ButtonGroup } from 'react-bootstrap';
 import { FiEdit3 } from 'react-icons/fi';
-import { data } from './data';
+import { AiFillDelete } from 'react-icons/ai';
+// import { data } from './data';
 
 function CategoryDetail() {
-    const {id} = useParams();
-    const [category] = data.filter((item) => item._id === Number(id));
+    // const [category] = data.filter((item) => item._id === Number(id));
+    const { category, isLoading, isSuccess, isError, message } = useSelector((status) => status.category);
+    const { id } = useParams();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(isError){
+            toast.error(message);
+        } else if(category?._id !== id){
+            dispatch(get(id));
+        }
+
+        if(category) {
+            dispatch(resetStatus());
+        }
+        // eslint-disable-next-line
+    }, [isError, isSuccess, id, category]);
+
+    if(isError) {
+        return <h3>Something Went Wrong</h3>
+    }
+
+    function onDelete() {
+        // eslint-disable-next-line
+        if(confirm("Do you really want to delete this?")) {
+            dispatch(remove(category._id));
+            navigate('/category');
+        }
+    }
 
     return(
-        <>
-            {/* <h2>Category Detail </h2> */}
-            {/* <Button onClick={() => navigate('edit')} >Edit</Button> */}
-            <Button as={Link} to={`../${id}/edit`} ><FiEdit3 size={25} /> Edit</Button>
+        <>        
+            <ButtonGroup>
+                <Button as={Link} to={`../${id}/edit`} ><FiEdit3 size={25} /> Edit</Button>
+                <Button onClick={onDelete} variant='danger'><AiFillDelete size={25} /> Delete</Button>
+            </ButtonGroup>
             <p></p>
             <hr />
             <Row >
-            <p>
-                <strong>id:</strong> {category._id}
-            </p>
-            <p>
-                <strong>name:</strong> {category.name}
-            </p>            
-            <p>
-                <strong>description:</strong> {category.description}
-            </p>    
+                <p>
+                <strong>id:</strong> 
+                    <Badge bg="secondary">{'  '}
+                    {isLoading ? (<Spinner />) : category?._id}
+                    </Badge>
+                </p>
+                <p>
+                    <strong>name:</strong> 
+                    {isLoading ? (<Spinner />) : category?.name}
+                </p>            
+                <p>
+                    <strong>description:</strong> 
+                    {isLoading ? (<Spinner />) : category?.description}
+                </p>    
             </Row>
         </>
     );

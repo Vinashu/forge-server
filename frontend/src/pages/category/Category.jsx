@@ -1,23 +1,24 @@
 import React from 'react';
+import { Outlet } from "react-router-dom";
 import { Col, Container, Row } from 'react-bootstrap';
-import {Outlet} from "react-router-dom";
-import {CategoryList} from './';
+import { CategoryList } from './';
+import { MdOutlineCategory } from 'react-icons/md';
 
 function Category() {
     return(
         <>
         <Container fluid='true'>
-            <Row className="center">
-                <h1>Category</h1>
+            <Row className="justify-content-md-center">
+                <h1 className='center'><MdOutlineCategory /> Category</h1>
                 <Col xs={4}>
-                    <Row className="center">
+                    <Row className="justify-content-md-center">
                         <CategoryList />
                     </Row>
                 </Col>
                 <Col xs={1}>
                 </Col>
                 <Col xs={7}>
-                    <Row className="center">
+                    <Row className="justify-content-md-center">
                         <Outlet />
                     </Row>
                 </Col>

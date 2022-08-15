@@ -4,7 +4,7 @@
 
 .nav-pills
 .nav-link.active {
-    background-color: white;    
+    background-color: black;    
     color: orange;
     box-shadow: 1px 2px orange;
 }
@@ -24,4 +24,5 @@ nav {
 .center {
     text-align: center;
     align-items: top;
+    padding-top: 5px;
 }
