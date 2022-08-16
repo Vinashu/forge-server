@@ -18,15 +18,22 @@ function CategoryDetail() {
     useEffect(() => {
         if(isError){
             toast.error(message);
-        } else if(category?._id !== id){
-            dispatch(get(id));
-        }
+            dispatch(resetStatus());
+        } 
 
-        if(category) {
+        if(isSuccess){
             dispatch(resetStatus());
         }
+
         // eslint-disable-next-line
-    }, [isError, isSuccess, id, category]);
+    }, [isError, isSuccess]);
+
+    useEffect(() => {
+        if(category?._id !== id){
+            dispatch(get(id));
+        }
+        // eslint-disable-next-line
+    }, [id]);
 
     if(isError) {
         return <h3>Something Went Wrong</h3>

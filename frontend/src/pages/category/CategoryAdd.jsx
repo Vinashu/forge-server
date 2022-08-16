@@ -36,14 +36,14 @@ function CategoryEdit() {
         }
 
         // Redirect when logged in
-        if(isSuccess && name !== '' && description !== '') {
+        if(isSuccess) {
             setFormData({name: '', description: ''});
             dispatch(resetStatus());
             navigate('/category');
         }
 
         // eslint-disable-next-line
-    },[isError, isSuccess]);      
+    },[isError, isSuccess]);
 
     const onSave = (e) => {
         e.preventDefault();   

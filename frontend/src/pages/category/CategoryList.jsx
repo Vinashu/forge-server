@@ -14,7 +14,7 @@ function CategoryList() {
         setSelectedItem(id);
     }
 
-    const { categories, isLoading, isError, message } = useSelector((state) => state.category);
+    const { categories, isSuccess, isLoading, isError, message } = useSelector((state) => state.category);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -22,12 +22,18 @@ function CategoryList() {
     useEffect(() => {
         if(isError){
             toast.error(message);
-        } else {
-            dispatch(getAll());
-        }
+            dispatch(resetStatus());
+        } 
 
+        if(isSuccess){
+            dispatch(resetStatus());
+        }         
         // eslint-disable-next-line
-    }, [isError, dispatch]);
+    }, [isError, isSuccess, dispatch]);
+
+    useEffect(() => {
+        dispatch(getAll());
+    }, [dispatch]);
 
     function onCreateNew() {
         setSelectedItem(0);
