@@ -10,7 +10,6 @@ import {
 	Home,
 	Login,
 	Register,
-	Operation,
 	Reward,
 	Target,
 } from './pages';
@@ -26,6 +25,12 @@ import {
     VariableEdit,
     VariableDetail
 } from './pages/variable';
+import {
+	Operation,
+	OperationAdd,
+    OperationEdit,
+    OperationDetail
+} from './pages/operation';
 
 function App() {
   return (
@@ -57,7 +62,12 @@ function App() {
 						</Route>
 					</Route>
 					<Route path='/operation' element={<PrivateRoute />} >
-						<Route path='/operation' element={<Operation />} />
+						<Route path='/operation' element={<Operation />} >
+						<Route path="add" element={<OperationAdd />} />
+							<Route path=":id" element={<OperationDetail />} />
+							<Route path=":id/edit" element={<OperationEdit />} />
+							<Route path=":id/detail" element={<OperationDetail />} />							
+						</Route>
 					</Route>
 					<Route path='/reward' element={<PrivateRoute />} >						
 						<Route path='/reward' element={<Reward />} />
