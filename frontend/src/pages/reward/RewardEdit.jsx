@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css';
+import EditorToolbar, { modules, formats } from '../../components/EditorToolbar';
 import { get, update, resetStatus } from '../../features/reward/rewardSlice';
 import { getAll as getAllCategories } from '../../features/category/categorySlice';
 import { Row, Form, Button, ButtonGroup, Badge, Spinner } from 'react-bootstrap';
@@ -9,6 +12,7 @@ import { FiSave } from 'react-icons/fi';
 import { GiCancel } from 'react-icons/gi';
 
 function RewardEdit() {
+    const [editor, setEditor] = useState('');
     const { id } = useParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -21,6 +25,7 @@ function RewardEdit() {
         imagePath: '',
         category: []
     });
+    // eslint-disable-next-line
     let { _id, name, description, imagePath, category } = formData;
 
     useEffect(() => {
@@ -32,6 +37,7 @@ function RewardEdit() {
             dispatch(resetStatus());
             const {  _id, name, description, imagePath, category } = reward;
             setFormData({ _id, name, description, imagePath, category });
+            setEditor(description);
         }
 
         // eslint-disable-next-line
@@ -67,7 +73,7 @@ function RewardEdit() {
         const data = {
             _id,
             name,
-            description,
+            description: editor,
             imagePath,
             category
         };
@@ -131,14 +137,24 @@ function RewardEdit() {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Label htmlFor="description">Description</Form.Label>
-                        <Form.Control
+                        <EditorToolbar />
+                        {/* <Form.Label htmlFor="editor">Description</Form.Label> */}
+                        <ReactQuill 
+                            theme="snow"
+                            id="editor" 
+                            name="editor" 
+                            value={editor}
+                            onChange={setEditor}
+                            modules={modules}
+                            formats={formats}                            
+                        />                        
+                        {/* <Form.Control
                             id="description" 
                             name="description" 
                             placeholder="Type the description" 
                             value={description} 
                             onChange={handleChange}
-                        />
+                        /> */}
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label htmlFor="imagePath">Image</Form.Label>
@@ -161,7 +177,7 @@ function RewardEdit() {
                         >
                             {categories && categories?.map((cat) => {
                                 const color = category?.includes(cat._id) ? 'success' : 'danger';
-                                return <>                                    
+                                return <span key={cat._id} >
                                     <Badge 
                                         className='pointer'
                                         onClick={() => toogleCategory(cat._id)}
@@ -171,7 +187,7 @@ function RewardEdit() {
                                     >
                                         <h6>&nbsp;{cat.name}&nbsp;</h6>
                                     </Badge>{' '}
-                                </>
+                                </span>
                             })}
 
                         </div>

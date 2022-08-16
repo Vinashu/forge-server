@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
+import ReactQuill from 'react-quill'
+import 'react-quill/dist/quill.snow.css';
+import EditorToolbar, { modules, formats } from '../../components/EditorToolbar';
 import { Row, Form, Button, ButtonGroup, Badge } from 'react-bootstrap';
 import { create, resetStatus } from '../../features/reward/rewardSlice';
 import { getAll as getAllCategories } from '../../features/category/categorySlice';
@@ -9,14 +12,16 @@ import { FiSave } from 'react-icons/fi';
 import { GiCancel } from 'react-icons/gi';
 
 function RewardAdd() {
-    const { isSuccess, isError, message } = useSelector((state) => state.reward);
+    const [editor, setEditor] = useState('');
     const { categories } = useSelector((state) => state.category);
+    const { isSuccess, isError, message } = useSelector((state) => state.reward);
     const [formData, setFormData] = useState({
         name: '',
         description: '',
         imagePath: '',
         category: []
     });
+    // eslint-disable-next-line
     let {name, description, imagePath, category} = formData;
 
     const dispatch = useDispatch();
@@ -58,7 +63,7 @@ function RewardAdd() {
 
         const data = {
             name,
-            description,
+            description: editor,
             imagePath,
             category
         };
@@ -116,14 +121,24 @@ function RewardAdd() {
                         />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <Form.Label htmlFor="description">Description</Form.Label>
-                        <Form.Control
+                        <EditorToolbar />
+                        {/* <Form.Label htmlFor="editor">Description</Form.Label> */}
+                        <ReactQuill 
+                            theme="snow"
+                            id="editor" 
+                            name="editor" 
+                            value={editor}
+                            onChange={setEditor}
+                            modules={modules}
+                            formats={formats}
+                        />
+                        {/* <Form.Control
                             id="description" 
                             name="description" 
                             placeholder="Type the description" 
                             value={description} 
                             onChange={handleChange}
-                        />
+                        /> */}
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label htmlFor="imagePath">Image</Form.Label>
@@ -146,7 +161,7 @@ function RewardAdd() {
                         >
                             {categories.map((cat) => {
                                 const color = category.includes(cat._id) ? 'success' : 'danger';
-                                return <>                                    
+                                return <span key={cat._id}>                                    
                                     <Badge 
                                         className='pointer'
                                         onClick={() => toogleCategory(cat._id)}
@@ -156,7 +171,7 @@ function RewardAdd() {
                                     >
                                         <h6>&nbsp;{cat.name}&nbsp;</h6>
                                     </Badge>{' '}
-                                </>
+                                </span>
                             })}
 
                         </div>

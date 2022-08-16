@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import 'react-quill/dist/quill.snow.css';
 import { get, remove, resetStatus } from '../../features/reward/rewardSlice';
 import { getAll as getAllCategory } from '../../features/category/categorySlice';
 import { Button, Row, Spinner, Badge, ButtonGroup } from 'react-bootstrap';
@@ -59,31 +60,31 @@ function RewardDetail() {
             <p></p>
             <hr />
             <Row >
-                <p>
+                <div>
                 <strong>id: </strong> 
                     <Badge bg="secondary">{'  '}
                     {isLoading ? (<Spinner />) : reward?._id}
                     </Badge>
-                </p>
+                </div>
                     {isLoading ? (<Spinner />) : <h2>{reward?.name}</h2>}
-                    {isLoading ? (<Spinner />) : <p dangerouslySetInnerHTML={{__html: reward.description}}></p>}
-                <p>
+                    {isLoading ? (<Spinner />) : <div className="reward-editor" dangerouslySetInnerHTML={{__html: reward.description}}></div>}
+                <div>
                     <strong>image: </strong> 
-                    {isLoading ? (<Spinner />) : reward?.imagePath}                   
-                </p>
-                <p>
+                    {isLoading ? (<Spinner />) : reward?.imagePath}
+                </div>
+                <div>
                     {reward?.imagePath && <img className='center' src={reward?.imagePath} alt={reward?.name} />}
-                </p>
-                <p>
+                </div>
+                <div>
                     <strong>category: </strong> 
                     {isLoading ? (<Spinner />) : (
                         <div>
                             {reward?.category?.map((category) => {                                
-                                return  <><Badge bg="success" key={category}><h6>&nbsp;{categories?.find((cat) => cat._id === category)?.name}&nbsp;</h6></Badge>{' '}</>
+                                return  <span key={category}><Badge bg="success" key={category}><h6>&nbsp;{categories?.find((cat) => cat._id === category)?.name}&nbsp;</h6></Badge>{' '}</span>
                             })}                            
                         </div>
                     )}
-                </p>
+                </div>
             </Row>
         </>
     );

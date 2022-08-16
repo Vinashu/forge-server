@@ -28,3 +28,18 @@ nav {
 }
 
 .pointer {cursor: pointer;}
+
+.reward-editor {
+    border:1px solid black;
+}
+
+.ql-video
+{
+    width: 640px;
+    height: 480px;
+    align-items: center;
+    text-align: center;
+    display: block; 
+    margin: 0 auto;
+
+}
