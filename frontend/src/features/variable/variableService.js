@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL = '/api/categories';
+const API_URL = '/api/variables';
 
-// Create new category
+// Create new variable
 const create = async(data, token) => {
     const config = {
         headers: {
@@ -15,7 +15,7 @@ const create = async(data, token) => {
     return response.data;
 }
 
-// Get categories
+// Get variables
 const getAll = async(token) => {
     const config = {
         headers: {
@@ -28,7 +28,7 @@ const getAll = async(token) => {
     return response.data;
 }
 
-// Get category
+// Get variable
 const get = async(id, token) => {
     const config = {
         headers: {
@@ -40,7 +40,7 @@ const get = async(id, token) => {
     return response.data;
 }
 
-// Update category
+// Update variable
 const update = async(data, token) => {
     const config = {
         headers: {
@@ -53,7 +53,7 @@ const update = async(data, token) => {
     return response.data;
 }
 
-// Delete category
+// Delete variable
 const remove = async(id, token) => {
     const config = {
         headers: {
@@ -65,7 +65,7 @@ const remove = async(id, token) => {
     return response.data;
 }
 
-const caregoryService = {
+const variableService = {
     create,
     getAll,
     get,
@@ -73,4 +73,4 @@ const caregoryService = {
     remove,
 };
 
-export default caregoryService;
+export default variableService;

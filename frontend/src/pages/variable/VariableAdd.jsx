@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Row, Form, Button, ButtonGroup } from 'react-bootstrap';
-import { create, resetStatus } from '../../features/category/categorySlice';
+import { create, resetStatus } from '../../features/variable/variableSlice';
 import { FiSave } from 'react-icons/fi';
 import { GiCancel } from 'react-icons/gi';
 
-function CategoryAdd() {
+function VariableAdd() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const { isSuccess, isError, message } = useSelector((state) => state.category);    
+    const { isSuccess, isError, message } = useSelector((state) => state.variable);    
 
     const [formData, setFormData] = useState({
         name: '',
@@ -22,7 +22,7 @@ function CategoryAdd() {
 
     function onCancel() {
         setFormData({name: '', description: ''});
-        navigate('/category');
+        navigate('/variable');
     }
 
     function handleChange(e) {
@@ -38,7 +38,7 @@ function CategoryAdd() {
         if(isSuccess) {
             setFormData({name: '', description: ''});
             dispatch(resetStatus());
-            navigate('/category');
+            navigate('/variable');
         }
 
         // eslint-disable-next-line
@@ -102,4 +102,4 @@ function CategoryAdd() {
     );
 };
 
-export default CategoryAdd;
+export default VariableAdd;

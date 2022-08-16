@@ -1,58 +1,68 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { Row, Form, Button, ButtonGroup } from 'react-bootstrap';
-import { create, resetStatus } from '../../features/category/categorySlice';
+import { get, update, resetStatus } from '../../features/variable/variableSlice';
+import { Row, Form, Button, ButtonGroup, Badge, Spinner } from 'react-bootstrap';
 import { FiSave } from 'react-icons/fi';
 import { GiCancel } from 'react-icons/gi';
+// import { data } from './data';
 
-function CategoryAdd() {
-    const dispatch = useDispatch();
+function VariableEdit() {
+    const { id } = useParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const { isSuccess, isError, message } = useSelector((state) => state.category);    
-
-    const [formData, setFormData] = useState({
+    const { variable, isLoading, isSuccess, isError, message } = useSelector((status) => status.variable);
+    const [ formData, setFormData ] = useState({
+        _id: '',
         name: '',
         description: ''
     });
+    const { _id, name, description } = formData;
 
-    const {name, description} = formData;
+    useEffect(() => {
+        if(isError){
+            toast.error(message);
+            dispatch(resetStatus());
+        } 
+        if(isSuccess){
+            dispatch(resetStatus());
+            const { _id, name, description } = variable;
+            setFormData({ _id, name, description });
+        }         
+
+        // eslint-disable-next-line
+    }, [isError, isSuccess]);
+
+    useEffect(() => {
+        if(id){
+            dispatch(get(id));
+        }
+
+        // eslint-disable-next-line
+    }, [id, dispatch]);    
 
     function onCancel() {
-        setFormData({name: '', description: ''});
-        navigate('/category');
+        setFormData({_id: '', name: '', description: ''});
+        navigate(`/variable/${id}/detail`);
     }
 
     function handleChange(e) {
         setFormData((prev) => {return {...prev, [e.target.name]: e.target.value }});
     }
 
-    useEffect(() => {
-        if(isError) {
-            toast.error(message);
-            dispatch(resetStatus());
-        }
-
-        if(isSuccess) {
-            setFormData({name: '', description: ''});
-            dispatch(resetStatus());
-            navigate('/category');
-        }
-
-        // eslint-disable-next-line
-    },[isError, isSuccess]);
-
     const onSave = (e) => {
         e.preventDefault();   
 
         const data = {
+            _id,
             name,
-            description,
+            description
         };
 
-        dispatch(create(data));
+        dispatch(update(data));
+        navigate(`/variable/${_id}/detail`);        
     };    
 
     return(
@@ -73,8 +83,13 @@ function CategoryAdd() {
             </ButtonGroup>
             <p></p>
             <hr />
-            <Row>
+            <Row >               
+                {isLoading ? (<Spinner />) : (
                 <Form>
+                    <Form.Group className="mb-3">
+                        id: 
+                        {isLoading ? (<Spinner />) : (<Badge bg="secondary">{_id}</Badge>)}                        
+                    </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label htmlFor="name">Name</Form.Label>
                         <Form.Control 
@@ -94,12 +109,12 @@ function CategoryAdd() {
                             value={description} 
                             onChange={handleChange}
                         />
-                    </Form.Group>                    
+                    </Form.Group>
                 </Form>
-
-            </Row>            
+                )}
+            </Row>          
         </>
     );
 };
 
-export default CategoryAdd;
+export default VariableEdit;

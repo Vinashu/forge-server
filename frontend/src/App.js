@@ -13,7 +13,6 @@ import {
 	Operation,
 	Reward,
 	Target,
-	Variable
 } from './pages';
 import {
 	Category,
@@ -21,6 +20,12 @@ import {
     CategoryEdit,
     CategoryDetail
 } from './pages/category';
+import {
+	Variable,
+	VariableAdd,
+    VariableEdit,
+    VariableDetail
+} from './pages/variable';
 
 function App() {
   return (
@@ -43,11 +48,16 @@ function App() {
 							<Route path=":id/detail" element={<CategoryDetail />} />
 						</Route>
 					</Route>
+					<Route path='/variable' element={<PrivateRoute />} >
+						<Route path='/variable' element={<Variable />} >
+							<Route path="add" element={<VariableAdd />} />
+							<Route path=":id" element={<VariableDetail />} />
+							<Route path=":id/edit" element={<VariableEdit />} />						
+							<Route path=":id/detail" element={<VariableDetail />} />						
+						</Route>
+					</Route>
 					<Route path='/operation' element={<PrivateRoute />} >
 						<Route path='/operation' element={<Operation />} />
-					</Route>
-					<Route path='/variable' element={<PrivateRoute />} >
-						<Route path='/variable' element={<Variable />} />
 					</Route>
 					<Route path='/reward' element={<PrivateRoute />} >						
 						<Route path='/reward' element={<Reward />} />

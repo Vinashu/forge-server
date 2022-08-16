@@ -2,15 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { get, remove, resetStatus } from '../../features/category/categorySlice';
+import { get, remove, resetStatus } from '../../features/variable/variableSlice';
 import { Button, Row, Spinner, Badge, ButtonGroup } from 'react-bootstrap';
 import { FiEdit3 } from 'react-icons/fi';
 import { AiFillDelete } from 'react-icons/ai';
-// import { data } from './data';
 
-function CategoryDetail() {
-    // const [category] = data.filter((item) => item._id === Number(id));
-    const { category, isLoading, isSuccess, isError, message } = useSelector((status) => status.category);
+function VariableDetail() {
+    const { variable, isLoading, isSuccess, isError, message } = useSelector((status) => status.variable);
     const { id } = useParams();
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -29,7 +27,7 @@ function CategoryDetail() {
     }, [isError, isSuccess]);
 
     useEffect(() => {
-        if(category?._id !== id){
+        if(variable?._id !== id){
             dispatch(get(id));
         }
         // eslint-disable-next-line
@@ -42,8 +40,8 @@ function CategoryDetail() {
     function onDelete() {
         // eslint-disable-next-line
         if(confirm("Do you really want to delete this?")) {
-            dispatch(remove(category._id));
-            navigate('/category');
+            dispatch(remove(variable._id));
+            navigate('/variable');
         }
     }
 
@@ -59,20 +57,20 @@ function CategoryDetail() {
                 <p>
                 <strong>id: </strong> 
                     <Badge bg="secondary">{'  '}
-                    {isLoading ? (<Spinner />) : category?._id}
+                    {isLoading ? (<Spinner />) : variable?._id}
                     </Badge>
                 </p>
                 <p>
                     <strong>name: </strong> 
-                    {isLoading ? (<Spinner />) : category?.name}
+                    {isLoading ? (<Spinner />) : variable?.name}
                 </p>            
                 <p>
                     <strong>description: </strong> 
-                    {isLoading ? (<Spinner />) : category?.description}
+                    {isLoading ? (<Spinner />) : variable?.description}
                 </p>    
             </Row>
         </>
     );
 };
 
-export default CategoryDetail;
+export default VariableDetail;
