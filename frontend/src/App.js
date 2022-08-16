@@ -1,36 +1,13 @@
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-import {ToastContainer} from 'react-toastify';
-import {Container} from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import { Container } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
-import {
-  	Header,
-	PrivateRoute
-} from './components';
-import {
-	Home,
-	Login,
-	Register,
-	Reward,
-	Target,
-} from './pages';
-import {
-	Category,
-	CategoryAdd,
-    CategoryEdit,
-    CategoryDetail
-} from './pages/category';
-import {
-	Variable,
-	VariableAdd,
-    VariableEdit,
-    VariableDetail
-} from './pages/variable';
-import {
-	Operation,
-	OperationAdd,
-    OperationEdit,
-    OperationDetail
-} from './pages/operation';
+import { Header, PrivateRoute } from './components';
+import { Home, Login, Register, Target } from './pages';
+import { Category, CategoryAdd, CategoryEdit, CategoryDetail } from './pages/category';
+import { Variable, VariableAdd, VariableEdit, VariableDetail } from './pages/variable';
+import { Operation, OperationAdd, OperationEdit, OperationDetail } from './pages/operation';
+import { Reward, RewardAdd, RewardEdit, RewardDetail } from './pages/reward';
 
 function App() {
   return (
@@ -49,7 +26,7 @@ function App() {
 						<Route path='/category' element={<Category />} >
 							<Route path="add" element={<CategoryAdd />} />
 							<Route path=":id" element={<CategoryDetail />} />
-							<Route path=":id/edit" element={<CategoryEdit />} />						
+							<Route path=":id/edit" element={<CategoryEdit />} />
 							<Route path=":id/detail" element={<CategoryDetail />} />
 						</Route>
 					</Route>
@@ -57,8 +34,8 @@ function App() {
 						<Route path='/variable' element={<Variable />} >
 							<Route path="add" element={<VariableAdd />} />
 							<Route path=":id" element={<VariableDetail />} />
-							<Route path=":id/edit" element={<VariableEdit />} />						
-							<Route path=":id/detail" element={<VariableDetail />} />						
+							<Route path=":id/edit" element={<VariableEdit />} />
+							<Route path=":id/detail" element={<VariableDetail />} />
 						</Route>
 					</Route>
 					<Route path='/operation' element={<PrivateRoute />} >
@@ -66,18 +43,22 @@ function App() {
 						<Route path="add" element={<OperationAdd />} />
 							<Route path=":id" element={<OperationDetail />} />
 							<Route path=":id/edit" element={<OperationEdit />} />
-							<Route path=":id/detail" element={<OperationDetail />} />							
+							<Route path=":id/detail" element={<OperationDetail />} />
 						</Route>
 					</Route>
-					<Route path='/reward' element={<PrivateRoute />} >						
-						<Route path='/reward' element={<Reward />} />
+					<Route path='/reward' element={<PrivateRoute />} >
+						<Route path='/reward' element={<Reward />} >
+							<Route path="add" element={<RewardAdd />} />
+							<Route path=":id" element={<RewardDetail />} />
+							<Route path=":id/edit" element={<RewardEdit />} />
+							<Route path=":id/detail" element={<RewardDetail />} />
+						</Route>
 					</Route>
-					<Route path='/target' element={<PrivateRoute />} >						
+					<Route path='/target' element={<PrivateRoute />} >
 						<Route path='/target' element={<Target />} />
-					</Route>						
-					{/* <Route path='logout' element={<Logout />} /> */}
+					</Route>
 					<Route path='login' element={<Login />} />
-					<Route path='register' element={<Register />} />					
+					<Route path='register' element={<Register />} />
 				</Routes>			
 			</Container>
 		</Router>
