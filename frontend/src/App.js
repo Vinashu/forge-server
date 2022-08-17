@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import { Container } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
-import { Header, PrivateRoute } from './components';
+import { Header, PrivateRoute, NotFound } from './components';
 import { Home, Login, Register } from './pages';
 import { Category, CategoryAdd, CategoryEdit, CategoryDetail } from './pages/category';
 import { Variable, VariableAdd, VariableEdit, VariableDetail } from './pages/variable';
@@ -65,6 +65,7 @@ function App() {
 					</Route>
 					<Route path='login' element={<Login />} />
 					<Route path='register' element={<Register />} />
+					<Route path="*" element={<NotFound />} />
 				</Routes>			
 			</Container>
 		</Router>
