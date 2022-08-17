@@ -69,6 +69,11 @@ process.on('unhandledRejection', (error, promise)  => {
     process.exit(1); // Exit your app 
 });
 
-app.listen(PORT, () => {
+let server = app.listen(PORT, () => {
     console.log(`Server successfully running on ${PORT}`.yellow);
+});
+
+server.on('clientError', (err, socket) => {
+    console.error(err);
+    socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
 });
