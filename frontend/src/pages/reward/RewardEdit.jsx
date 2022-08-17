@@ -123,7 +123,7 @@ function RewardEdit() {
                 {isLoading ? (<Spinner />) : (
                 <Form>
                     <Form.Group className="mb-3">
-                        id: 
+                        id: {' '}
                         {isLoading ? (<Spinner />) : (<Badge bg="secondary">{_id}</Badge>)}                        
                     </Form.Group>
                     <Form.Group className="mb-3">
