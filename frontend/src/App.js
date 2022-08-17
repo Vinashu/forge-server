@@ -15,7 +15,7 @@ function App() {
     <>
 		<Router>
 			<Header />
-			<Container >
+			<Container style={{marginTop: "100px"}} >
 				<Routes>
 					<Route path='/' element={<PrivateRoute />} >
 						<Route path='/' element={<Home />} />

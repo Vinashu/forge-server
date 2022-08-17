@@ -5,20 +5,21 @@
 .nav-pills
 .nav-link.active {
     background-color: black;    
-    color: orange;
-    box-shadow: 1px 2px orange;
+    color: white;
+    box-shadow: 1px 2px white;
 }
 
 nav {
     margin: 0;
     width: 100%;
-    height: 80px;
+    /* height: 80px; */
     background-color: rgb(69, 62, 249);
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-decoration: none;
+    position: relative;
   }
 
 .center {
@@ -41,5 +42,4 @@ nav {
     text-align: center;
     display: block; 
     margin: 0 auto;
-
 }
