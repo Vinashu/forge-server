@@ -28,7 +28,7 @@ function TargetList() {
             dispatch(resetStatus());
         }         
         // eslint-disable-next-line
-    }, [isError, isSuccess, dispatch]);
+    }, [isError, isSuccess]);
 
     useEffect(() => {
         dispatch(getAll());

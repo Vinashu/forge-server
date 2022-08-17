@@ -14,7 +14,7 @@ function TargetAdd() {
     const { variables } = useSelector((status) => status.variable);
     const { operations } = useSelector((status) => status.operation);
     const { rewards } = useSelector((status) => status.reward);    
-    const { isSuccess, isError, message } = useSelector((state) => state.operation);
+    const { isSuccess, isError, message } = useSelector((state) => state.target);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -46,7 +46,6 @@ function TargetAdd() {
         }
 
         if(isSuccess) {
-            toast.success('Way to go!');
             setFormData({name: '', description: '', variable: '', operation: '', value: '', reward: ''});
             dispatch(resetStatus());
             navigate('/target');
@@ -64,9 +63,10 @@ function TargetAdd() {
         }        
         if(rewards?.length === 0) {
             dispatch(getAllRewards());
-        }        
+        }       
+        // dispatch(resetStatus());
         // eslint-disable-next-line
-    }, [dispatch]);    
+    }, []);    
 
     const onSave = (e) => {
         e.preventDefault();   
@@ -202,7 +202,6 @@ function TargetAdd() {
                                         </span>
                                 })
                             }                        
-                        {/* <strong>Reward: </strong> {rewards?.find((reward) => reward._id === reward)?.name} */}
                         </Alert>                    
                     </div>                    
                 </Form>

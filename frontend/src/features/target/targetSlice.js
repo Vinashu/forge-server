@@ -133,7 +133,7 @@ export const targetSlice = createSlice({
                 state.isSuccess = true;
                 state.message = '';
                 state.target = action.payload;
-                state.targets = state.operations.filter((target) => target._id !== action.payload._id);
+                state.targets = state.targets.filter((target) => target._id !== action.payload._id);
                 state.targets.push(action.payload);
             })
             .addCase(update.rejected, (state, action) => {
@@ -149,7 +149,7 @@ export const targetSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.message = '';
-                state.targets = state.operations.filter((target) => target._id !== action.payload.id);
+                state.targets = state.targets.filter((target) => target._id !== action.payload.id);
             })
             .addCase(remove.rejected, (state, action) => {
                 state.isLoading = false;
