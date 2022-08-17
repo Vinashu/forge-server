@@ -26,11 +26,9 @@ app.use('/api/engine', require('./routes/engineRoutes'));
 app.use('/images', require('./routes/imageRoutes'));
 
 // Serve Frontend
-console.log(process.env.NODE_ENV);
 if(process.env.NODE_ENV === 'production') {
     // Set build folder as static
     app.use(express.static(path.join(__dirname, '../frontend/build')));
-    console.log('Production mode');
     app.get('*', (req, res) => res.sendFile(path.join(__dirname, '../', 'frontend', 'build', 'index.html')));
 } else {
     app.get('/', (req, res) => {
