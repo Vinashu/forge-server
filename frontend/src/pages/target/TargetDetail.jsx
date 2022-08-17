@@ -90,7 +90,7 @@ function TargetDetail() {
                 </div>
                 <div>
                     <Alert variant='warning'>
-                        <strong>Operation: </strong> {operations?.find((operation) => operation._id === target.operation)?.name}
+                        <strong>Operation: </strong> {operations?.find((operation) => operation._id === target.operation)?.symbol}
                     </Alert>
                 </div>
                 <div>

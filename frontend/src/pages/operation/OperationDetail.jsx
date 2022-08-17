@@ -54,24 +54,24 @@ function OperationDetail() {
             <p></p>
             <hr />
             <Row >
-                <p>
+                <div>
                 <strong>id: </strong> 
                     <Badge bg="secondary">{'  '}
                     {isLoading ? (<Spinner />) : operation?._id}
                     </Badge>
-                </p>
-                <p>
+                </div>
+                <div>
                     <strong>name: </strong> 
                     {isLoading ? (<Spinner />) : operation?.name}
-                </p>            
-                <p>
+                </div>            
+                <div>
                     <strong>description: </strong> 
                     {isLoading ? (<Spinner />) : operation?.description}
-                </p>    
-                <p>
+                </div>    
+                <div>
                     <strong>symbol: </strong> 
                     {isLoading ? (<Spinner />) : operation?.symbol}
-                </p>                    
+                </div>                    
             </Row>
         </>
     );

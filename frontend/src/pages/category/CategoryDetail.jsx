@@ -56,20 +56,20 @@ function CategoryDetail() {
             <p></p>
             <hr />
             <Row >
-                <p>
+                <div>
                 <strong>id: </strong> 
                     <Badge bg="secondary">{'  '}
                     {isLoading ? (<Spinner />) : category?._id}
                     </Badge>
-                </p>
-                <p>
+                </div>
+                <div>
                     <strong>name: </strong> 
                     {isLoading ? (<Spinner />) : category?.name}
-                </p>            
-                <p>
+                </div>            
+                <div>
                     <strong>description: </strong> 
                     {isLoading ? (<Spinner />) : category?.description}
-                </p>    
+                </div>    
             </Row>
         </>
     );

@@ -54,20 +54,20 @@ function VariableDetail() {
             <p></p>
             <hr />
             <Row >
-                <p>
+                <div>
                 <strong>id: </strong> 
                     <Badge bg="secondary">{'  '}
                     {isLoading ? (<Spinner />) : variable?._id}
                     </Badge>
-                </p>
-                <p>
+                </div>
+                <div>
                     <strong>name: </strong> 
                     {isLoading ? (<Spinner />) : variable?.name}
-                </p>            
-                <p>
+                </div>            
+                <div>
                     <strong>description: </strong> 
                     {isLoading ? (<Spinner />) : variable?.description}
-                </p>    
+                </div>    
             </Row>
         </>
     );
