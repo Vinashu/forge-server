@@ -62,11 +62,13 @@ app.use(function(req, res, next) {
 process.on('uncaughtException', (error)  => {
     console.log('Alert! ERROR : ',  error);
     // process.exit(1); // Exit your app 
+    throw new Error('uncaughtException');
 });
 
 process.on('unhandledRejection', (error, promise)  => {
     console.log('Alert! ERROR : ',  error);
     // process.exit(1); // Exit your app 
+    throw new Error('unhandledRejection');
 });
 
 let server = app.listen(PORT, () => {
