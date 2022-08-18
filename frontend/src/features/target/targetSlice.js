@@ -102,7 +102,11 @@ export const targetSlice = createSlice({
                 state.isLoading = false;
                 state.isSuccess = true;
                 state.message = '';
-                state.targets = action.payload;
+                state.targets = action.payload.sort((a, b) => {
+                    if(a.name > b.name) {return 1}
+                    if(b.name > a.name) {return -1}
+                    return 0;
+                });
             })
             .addCase(getAll.rejected, (state, action) => {
                 state.isLoading = false;
