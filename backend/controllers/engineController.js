@@ -80,10 +80,7 @@ const checkRewardObject = asyncHandler(async (req, res) => {
         // Run the engine and check for rewards
         const results =  engine.checkRewards(messages.messages);
         // Clean the results and keep only the rewards id
-        const result = results.map((result) => {
-            return result._id;
-        })
-        res.json({'rewards': result});
+        res.json({'rewards': results});
         // res.json({'rewards': engine.checkRewards(messages)});
     } else {
         res.status(500).send('Missing messages body!')
