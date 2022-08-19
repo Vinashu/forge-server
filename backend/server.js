@@ -1,4 +1,5 @@
 const dotenv = require('dotenv').config();
+const cors = require('cors');
 const path = require('path');
 const imagePath = path.join(__dirname, 'images/');
 const express = require('express')
@@ -14,6 +15,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use("images", express.static(imagePath));
+app.use(cors({
+    origin: 'https://vinashu.github.io/codex-game/'
+}));
 
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
