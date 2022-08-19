@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use("images", express.static(imagePath));
 app.use(cors({
-    origin: 'https://vinashu.github.io/codex-game/'
+    origin: ['https://vinashu.github.io/codex-game', 'https://vinashu.github.io']
 }));
 
 // Routes
