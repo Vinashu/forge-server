@@ -1,0 +1,42 @@
+{
+    "_id" : ObjectId("62f5b6f9ee807c95f713b4c3"),
+    "name" : "Text with Figures",
+    "description" : "This category has educational material composed by texts with figures.",
+    "createdAt" : ISODate("2022-08-12T02:12:10.002Z"),
+    "updatedAt" : ISODate("2022-08-12T02:19:34.347Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62f699f9bbb414c8268216fa"),
+    "name" : "Videos",
+    "description" : "Videos do You Tube"
+},
+{
+    "_id" : ObjectId("62f69a16bbb414c826825de3"),
+    "name" : "Quizzes",
+    "description" : "Quizzes using Google Form"
+},
+{
+    "_id" : ObjectId("62fabc2f6955559003aa277d"),
+    "name" : "Biology",
+    "description" : "To group all the rewards that are related to biology.",
+    "createdAt" : ISODate("2022-08-15T21:35:43.061Z"),
+    "updatedAt" : ISODate("2022-08-16T16:06:18.436Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5dcbb7a0a13e169b0167"),
+    "name" : "Badge",
+    "description" : "A badge for achieving a certain goal.",
+    "createdAt" : ISODate("2022-08-18T15:42:03.287Z"),
+    "updatedAt" : ISODate("2022-08-18T15:42:03.287Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5dd6b7a0a13e169b016b"),
+    "name" : "Points",
+    "description" : "How much points the player will receive.",
+    "createdAt" : ISODate("2022-08-18T15:42:14.350Z"),
+    "updatedAt" : ISODate("2022-08-18T15:42:14.350Z"),
+    "__v" : 0
+}

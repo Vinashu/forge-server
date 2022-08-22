@@ -1,0 +1,54 @@
+{
+    "_id" : ObjectId("62f5c34341e4e4330ed75cc8"),
+    "name" : "Equallity",
+    "description" : "To compare if two values are the same.",
+    "symbol" : "==",
+    "createdAt" : ISODate("2022-08-12T03:04:35.080Z"),
+    "updatedAt" : ISODate("2022-08-16T14:48:14.182Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fbad67f40016990ad86efc"),
+    "name" : "Inequallity",
+    "description" : "It measures when two variables are different",
+    "symbol" : "!=",
+    "createdAt" : ISODate("2022-08-16T14:44:55.150Z"),
+    "updatedAt" : ISODate("2022-08-16T14:48:06.930Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fc6079e88a16c604edf6b0"),
+    "name" : "Greater or equal than",
+    "description" : "When a variable is greater or equal than another one.",
+    "symbol" : ">=",
+    "createdAt" : ISODate("2022-08-17T03:28:57.593Z"),
+    "updatedAt" : ISODate("2022-08-17T03:28:57.593Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fc6090e88a16c604edf6b4"),
+    "name" : "Less or equal than",
+    "description" : "When a variable is less or equal than another.",
+    "symbol" : "<=",
+    "createdAt" : ISODate("2022-08-17T03:29:20.051Z"),
+    "updatedAt" : ISODate("2022-08-17T03:29:20.051Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fc60a0e88a16c604edf6b8"),
+    "name" : "Greater",
+    "description" : "When a variable is greater. ",
+    "symbol" : ">",
+    "createdAt" : ISODate("2022-08-17T03:29:36.808Z"),
+    "updatedAt" : ISODate("2022-08-17T03:29:36.808Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fc60b2e88a16c604edf6bc"),
+    "name" : "Less than",
+    "description" : "When the variable is less than another.",
+    "symbol" : "<",
+    "createdAt" : ISODate("2022-08-17T03:29:54.896Z"),
+    "updatedAt" : ISODate("2022-08-17T03:29:54.896Z"),
+    "__v" : 0
+}

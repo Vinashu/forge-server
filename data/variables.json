@@ -1,0 +1,32 @@
+{
+    "_id" : ObjectId("62f5bbfce3920fa99c4ab692"),
+    "name" : "activityID",
+    "description" : "To check which activity the student have finished.",
+    "createdAt" : ISODate("2022-08-12T02:33:32.687Z"),
+    "updatedAt" : ISODate("2022-08-12T02:41:57.670Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fd4c7aaf242c063c5d9a50"),
+    "name" : "matches",
+    "description" : "How many matches was played.",
+    "createdAt" : ISODate("2022-08-17T20:15:54.391Z"),
+    "updatedAt" : ISODate("2022-08-18T15:38:56.900Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5d1eb7a0a13e169b0150"),
+    "name" : "points",
+    "description" : "How many points they player has.",
+    "createdAt" : ISODate("2022-08-18T15:39:10.718Z"),
+    "updatedAt" : ISODate("2022-08-18T15:39:10.718Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5d40b7a0a13e169b0154"),
+    "name" : "winsInARow",
+    "description" : "How many correct guesses have been made consecutively.",
+    "createdAt" : ISODate("2022-08-18T15:39:44.005Z"),
+    "updatedAt" : ISODate("2022-08-18T15:39:44.005Z"),
+    "__v" : 0
+}

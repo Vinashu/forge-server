@@ -1,0 +1,194 @@
+{
+    "_id" : ObjectId("62f5c93bba5f0b947cce27bd"),
+    "name" : "What are genomes?",
+    "description" : "<p>A genome is the entire genetic information of an organism. A complete copy of the genome is found in each cell of an organism. In GeSort, each puzzle is formed by two genomes, and each of them are represented by a row of coloured shapes.</p><p><img width='100%' src=\"http://forge-server-example.herokuapp.com/images/GeSortGenome.png\">How genomes are represented in GeSort</p>",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62f5b6f9ee807c95f713b4c3"), 
+        ObjectId("62fabc2f6955559003aa277d")
+    ],
+    "createdAt" : ISODate("2022-08-12T03:30:03.619Z"),
+    "updatedAt" : ISODate("2022-08-17T02:54:54.933Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62f69bc4bbb414c82686c2db"),
+    "name" : "Where are genomes stored?",
+    "description" : "<p><span><span>In eukaryotes (like animals and plants), the genome is stored inside the nucleus of their cells, whereas in prokaryotes (like bacteria) the genome is located directly in the cytoplasm, which is the substance that makes up much of a cell.</span></span></p><p><span><table width=\"100%\"><tr><td align=\"center\"><img src=\"http://forge-server-example.herokuapp.com/images/Cell.png\" width=\"248px\"></td><td align=\"center\"><img src=\"http://forge-server-example.herokuapp.com/images/Cell%20Prokaryote.png\" width=\"261px\"></td></tr><tr><td align=\"center\">Eukaryote Cell<sup>1</sup></td><td align=\"center\">Prokaryote Cell<sup>2</sup></td></tr></table></span></p><p><hr><p><span><span><sup>1</sup>Original title: Structure of a typical animal cell.<br>Link: </span></span><a href=\"https://en.wikipedia.org/wiki/Eukaryote#/media/File:Animal_cell_structure_en.svg\" target=\"_blank\" class=\"keychainify-checked\"><span><span>https://en.wikipedia.org/wiki/Eukaryote#/media/File:Animal_cell_structure_en.svg</span></span></a><br>Copyright: Public Domain</p><p><span><span><sup>2</sup>Original title: Average prokaryote cell numbered.<br>Link: </span></span><a href=\"https://commons.wikimedia.org/wiki/File:Average_prokaryote_cell_numbered.svg#/media/File:%20Average_prokaryote_cell-_unlabled.svg\" class=\"keychainify-checked\"><span><span>https://commons.wikimedia.org/wiki/File:Average_prokaryote_cell_numbered.svg#/media/File: </span></span></a><a href=\"Average_prokaryote_cell-_unlabled.svg\" target=\"_blank\" class=\"keychainify-checked\"><span><span>Average_prokaryote_cell-_unlabled.svg</span></span></a><br>Copyright: Public Domain</p><p></p>",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62f5b6f9ee807c95f713b4c3"), 
+        ObjectId("62fabc2f6955559003aa277d")
+    ],
+    "createdAt" : ISODate("2022-08-12T03:30:03.619Z"),
+    "updatedAt" : ISODate("2022-08-12T03:30:03.619Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62f69bf9bbb414c82687402c"),
+    "name" : "What are Chromosomes?",
+    "description" : "<p><span><span>Genomes are further divided into chromosomes. The human genome for example has 23 pairs of chromosomes. Each one of them is formed by a molecule of DNA (which stands for deoxyribonucleic acid). The DNA is a double-stranded molecule formed by two chains of nucleotides connected together. In its natural state, it adopts a double helix structure.</span></span></p><p><span><center><img src=\"http://forge-server-example.herokuapp.com/images/Chromosome%20Clear.png\" width=\"25%\"></center></span></p><p><span><center>Sample of one Chromosome<sup>1</sup></center></span></p><hr><p><span><span><sup>1</sup>Original title: Diagram of a replicated and condensed metaphase eukaryotic chromosome.<br>Link: </span></span><a href=\"https://en.wikipedia.org/wiki/Chromosome#/media/File:Chromosome.svg\" class=\"keychainify-checked\"><span><span>https://en.wikipedia.org/wiki/Chromosome#/media/File: </span></span></a><a href=\"Chromosome.svg\" target=\"_blank\" class=\"keychainify-checked\"><span><span>Chromosome.svg</span></span></a><br>Copyright: <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" class=\"keychainify-checked\"><span><span>CC BY-SA </span></span></a><a href=\"3.0\" target=\"_blank\" class=\"keychainify-checked\"><span><span>3.0</span></span></a></p><p></p>",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62f5b6f9ee807c95f713b4c3"), 
+        ObjectId("62fabc2f6955559003aa277d")
+    ],
+    "createdAt" : ISODate("2022-08-12T03:30:03.619Z"),
+    "updatedAt" : ISODate("2022-08-12T03:30:03.619Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62f69c20bbb414c826878ff2"),
+    "name" : "What is DNA?",
+    "description" : "<iframe class=\"ql-video\" frameborder=\"0\" allowfullscreen=\"true\" src=\"https://www.youtube.com/embed/2EQI0PkGwbI\"></iframe><p><br></p>",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62f699f9bbb414c8268216fa"), 
+        ObjectId("62fabc2f6955559003aa277d")
+    ],
+    "createdAt" : ISODate("2022-08-12T03:30:03.619Z"),
+    "updatedAt" : ISODate("2022-08-17T20:49:28.017Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fc08af3c4de36b81b59919"),
+    "name" : "What are nucleotides made of?",
+    "description" : "<iframe class=\"ql-video\" frameborder=\"0\" allowfullscreen=\"true\" src=\"https://forms.gle/EC1XfPTBQVQMUYrW7\"></iframe><p><br></p>",
+    "imagePath" : "https://quizizz.com/media/resource/gs/quizizz-media/quizzes/94bc5739-3a5c-4041-b04c-ea681fae51d0?w=200&h=200",
+    "category" : [ 
+        ObjectId("62f69a16bbb414c826825de3")
+    ],
+    "createdAt" : ISODate("2022-08-16T21:14:23.489Z"),
+    "updatedAt" : ISODate("2022-08-17T03:01:44.058Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fc5a28e88a16c604edf533"),
+    "name" : "How many nucleotides exist?",
+    "description" : "",
+    "imagePath" : "",
+    "category" : [],
+    "createdAt" : ISODate("2022-08-17T03:02:00.505Z"),
+    "updatedAt" : ISODate("2022-08-17T03:02:00.505Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fc5a36e88a16c604edf537"),
+    "name" : "Be ready, it is quiz time!",
+    "description" : "",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62f69a16bbb414c826825de3")
+    ],
+    "createdAt" : ISODate("2022-08-17T03:02:14.388Z"),
+    "updatedAt" : ISODate("2022-08-17T03:28:17.334Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5db0b7a0a13e169b0160"),
+    "name" : "Badge01",
+    "description" : "",
+    "imagePath" : "https://forge-server-example.herokuapp.com/images/badge01.png",
+    "category" : [ 
+        ObjectId("62fe5dcbb7a0a13e169b0167")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:41:36.850Z"),
+    "updatedAt" : ISODate("2022-08-19T18:06:06.982Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5df3b7a0a13e169b017c"),
+    "name" : "Badge02",
+    "description" : "",
+    "imagePath" : "https://forge-server-example.herokuapp.com/images/badge02.png",
+    "category" : [ 
+        ObjectId("62fe5dcbb7a0a13e169b0167")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:42:43.912Z"),
+    "updatedAt" : ISODate("2022-08-19T18:06:14.533Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5e00b7a0a13e169b0180"),
+    "name" : "Badge03",
+    "description" : "",
+    "imagePath" : "https://forge-server-example.herokuapp.com/images/badge03.png",
+    "category" : [ 
+        ObjectId("62fe5dcbb7a0a13e169b0167")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:42:56.818Z"),
+    "updatedAt" : ISODate("2022-08-19T18:06:23.013Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5e1bb7a0a13e169b0184"),
+    "name" : "Badge04",
+    "description" : "",
+    "imagePath" : "https://forge-server-example.herokuapp.com/images/badge04.jpeg",
+    "category" : [ 
+        ObjectId("62fe5dcbb7a0a13e169b0167")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:43:23.082Z"),
+    "updatedAt" : ISODate("2022-08-19T18:06:30.484Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5e2db7a0a13e169b0191"),
+    "name" : "10",
+    "description" : "",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62fe5dd6b7a0a13e169b016b")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:43:41.948Z"),
+    "updatedAt" : ISODate("2022-08-18T15:43:41.948Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5e33b7a0a13e169b0195"),
+    "name" : "20",
+    "description" : "",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62fe5dd6b7a0a13e169b016b")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:43:47.510Z"),
+    "updatedAt" : ISODate("2022-08-18T15:43:47.510Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5e39b7a0a13e169b0199"),
+    "name" : "30",
+    "description" : "",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62fe5dd6b7a0a13e169b016b")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:43:53.234Z"),
+    "updatedAt" : ISODate("2022-08-18T15:43:53.234Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5e3eb7a0a13e169b019d"),
+    "name" : "40",
+    "description" : "",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62fe5dd6b7a0a13e169b016b")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:43:58.965Z"),
+    "updatedAt" : ISODate("2022-08-18T15:43:58.965Z"),
+    "__v" : 0
+},
+{
+    "_id" : ObjectId("62fe5e44b7a0a13e169b01a1"),
+    "name" : "50",
+    "description" : "",
+    "imagePath" : "",
+    "category" : [ 
+        ObjectId("62fe5dd6b7a0a13e169b016b")
+    ],
+    "createdAt" : ISODate("2022-08-18T15:44:04.184Z"),
+    "updatedAt" : ISODate("2022-08-18T15:44:04.184Z"),
+    "__v" : 0
+}
