@@ -4,7 +4,6 @@ const Target = require('../models/targetModel');
 const Variable = require('../models/variableModel');
 const Engine = require('../classes/engine');
 
-
 // @desc    Get rewards
 // @route   GET /api/engine
 // @access  Public
@@ -20,7 +19,6 @@ const getRewardsObject = asyncHandler(async (req, res) => {
     const rewards = await Reward.find({});
     res.status(200).json({'rewards': rewards});
 });
-
 
 // @desc    Get reward
 // @route   GET /api/engine/:id
@@ -87,10 +85,28 @@ const checkRewardObject = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc    Get targets
+// @route   GET /api/engine/targets
+// @access  Public
+const getTargets = asyncHandler(async (req, res) => {
+    const targets = await Target.find({}, {_id: 1, name: 1, description: 1});
+    res.status(200).json(targets);
+});
+
+// @desc    Get targets
+// @route   GET /api/engine/targets/object
+// @access  Public
+const getTargetsObject = asyncHandler(async (req, res) => {
+    const targets = await Target.find({}, {_id: 1, name: 1, description: 1});
+    res.status(200).json({targets: targets});
+});
+
 module.exports = {
     checkReward,  
     getRewards,
+    getTargets,
     checkRewardObject,
     getRewardsObject,
+    getTargetsObject,
     getReward
 }
