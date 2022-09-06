@@ -138,7 +138,7 @@ function Images() {
                         <Card key={image}>
                             <Card.Img key={image} variant="top" src={`images/${image}`}  style={{maxWidth: "303px", maxHeight: "160px", marginLeft: "auto", marginRight: "auto"}}/>
                             <Card.Body>
-                            <Card.Title>{image}</Card.Title>
+                            {/* <Card.Title>{image}</Card.Title> */}
                             <Card.Text>{image}</Card.Text>
                             </Card.Body>
                         </Card>
