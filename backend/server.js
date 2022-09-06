@@ -1,7 +1,7 @@
 const dotenv = require('dotenv').config();
 const cors = require('cors');
 const path = require('path');
-const imagePath = path.join(__dirname, 'images/');
+const publicFolder = path.join(__dirname, 'public/');
 const express = require('express')
 const {errorHandler} = require('./middleware/errorMiddleware');
 const connectDB = require('./config/db');
@@ -14,7 +14,7 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use("public", express.static(imagePath));
+app.use("public", express.static(publicFolder));
 app.use(cors({
     origin: ['https://vinashu.github.io/codex-game', 'https://vinashu.github.io']
 }));
@@ -28,6 +28,7 @@ app.use('/api/rewards', require('./routes/rewardRoutes'));
 app.use('/api/targets', require('./routes/targetRoutes'));
 app.use('/api/engine', require('./routes/engineRoutes'));
 app.use('/images', require('./routes/imageRoutes'));
+app.use('/upload', require('./routes/uploadRoutes'));
 
 // Serve Frontend
 if(process.env.NODE_ENV === 'production') {

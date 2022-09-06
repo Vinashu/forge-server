@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>File Uploader</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+            background-color: #333;
+            color: whitesmoke;
+        }
+
+        input,
+        button {
+            font: inherit;
+            width: max-content;
+        }
+
+        form {
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 1.5rem;
+        }        
+    </style>
+</head>
+<body>
+    <h1>File Uploader</h1>
+    <progress id="progress" value="0" max="100">0%</progress>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="myFiles" id="myFiles" accept="image/*" multiple />
+        <button>Submit</button>
+    </form>
+    <h2></h2>
+    <h3></h3>
+
+    <script>
+        const form = document.getElementById("uploadForm");
+        const sendFiles = async () => {
+            const myFiles = document.getElementById("myFiles").files;
+            const formData = new FormData();
+            Object.keys(myFiles).forEach(key => {
+                formData.append(myFiles.item(key).name, myFiles.item(key));
+            });
+            const progress = document.querySelector('progress');
+            try {
+                const response = await axios.request({
+                    method: 'POST',
+                    url: 'http://localhost:4500/upload',
+                    data: formData,
+                    onUploadProgress: (p) => {
+                        progress.max = p.total;
+                        progress.value = p.loaded;
+                        progress.textContent = Math.round(p.loaded/p.total) + "%";
+                    }
+                });     
+                const h2 = document.querySelector('h2');
+                h2.textContent = `status: ${response.status}`;
+                const h3 = document.querySelector('h3');
+                h3.textContent = response.data?.message;  
+
+            } catch (error) {
+                const response = error.response;
+                const h2 = document.querySelector('h2');
+                h2.textContent = `status: ${response.status}`;
+                const h3 = document.querySelector('h3');
+                h3.textContent = response.data?.message;                  
+            }
+        };
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            sendFiles();
+        })
+    </script>
+</body>
+</html>
