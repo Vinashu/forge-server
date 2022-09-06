@@ -14,7 +14,7 @@ connectDB();
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use("images", express.static(imagePath));
+app.use("public", express.static(imagePath));
 app.use(cors({
     origin: ['https://vinashu.github.io/codex-game', 'https://vinashu.github.io']
 }));
@@ -43,54 +43,6 @@ if(process.env.NODE_ENV === 'production') {
 // Middleware
 app.use(errorHandler);
 
-/*
-//Handler for 404 - Resource not Found
-app.use(function(req, res, next){
-    console.log("404/" + req.method + "=>" + req.originalUrl);
-    res.status(404).send("We think you are lost :-/");
-});
-//Error handling middleware
-app.use(function(err, req, res, next){
-    console.log(err); // to see properties of message in our console
-    res.status(422).send({error: err.message});
-});
-
-app.use(function(req, res, next) {
-    res.status(404);
-  
-    // respond with html page
-    if (req.accepts('html')) {
-      res.render('404', { url: req.url });
-      return;
-    }
-  
-    // respond with json
-    if (req.accepts('json')) {
-      res.json({ error: 'Not found' });
-      return;
-    }
-  
-    // default to plain-text. send()
-    res.type('txt').send('Not found');
-});
-
-process.on('uncaughtException', (error)  => {
-    //console.log('Alert! ERROR : ',  error);
-    // process.exit(1); // Exit your app 
-    throw new Error('uncaughtException');
-});
-
-process.on('unhandledRejection', (error, promise)  => {
-    //console.log('Alert! ERROR : ',  error);
-    // process.exit(1); // Exit your app 
-    throw new Error('unhandledRejection');
-});
-*/
 app.listen(PORT, () => {
     console.log(`Server successfully running on ${PORT}`.yellow);
 });
-
-// server.on('clientError', (err, socket) => {
-//     console.error(err);
-//     socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
-// });

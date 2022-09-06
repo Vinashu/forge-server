@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const imagePath = path.join(__dirname, '..', 'images/');
+const imagePath = path.join(__dirname, '..', 'public', 'images/');
 const asyncHandler = require('express-async-handler');
 const NOT_FOUND = "not_found.png";
 

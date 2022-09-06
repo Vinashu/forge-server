@@ -8,7 +8,7 @@ const Engine = require('../classes/engine');
 // @route   GET /api/engine
 // @access  Public
 const getRewards = asyncHandler(async (req, res) => {
-    const rewards = await Reward.find({});
+    const rewards = await Reward.find({}, "-description -createdAt -updatedAt -__v");
     res.status(200).json(rewards);
 });
 
@@ -16,7 +16,7 @@ const getRewards = asyncHandler(async (req, res) => {
 // @route   GET /api/engine/object
 // @access  Public
 const getRewardsObject = asyncHandler(async (req, res) => {
-    const rewards = await Reward.find({});
+    const rewards = await Reward.find({}, "-description -createdAt -updatedAt -__v");
     res.status(200).json({'rewards': rewards});
 });
 
