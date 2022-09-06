@@ -76,7 +76,7 @@ function Images() {
                             ...prev,
                             progressMax: p.total,
                             progressNow: p.loaded,
-                            progressLabel: (Math.round(p.loaded/p.total) * 100) + "%"
+                            progressLabel: (Math.round((p.loaded/p.total) * 100)) + "%"
                         }
                     })
                 },
