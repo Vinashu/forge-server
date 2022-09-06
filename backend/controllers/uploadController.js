@@ -1,6 +1,7 @@
+const fs = require('fs');
 const path = require('path');
 const asyncHandler = require('express-async-handler');
-// const User = require('../models/userModel');
+const User = require('../models/userModel');
 
 // @desc    Get file uploader page
 // @route   GET /upload
@@ -11,18 +12,30 @@ const getUpload = asyncHandler(async (req, res) => {
     //     res.status(401);
     //     throw new Error("User not found")
     // }
-    res.sendFile(path.join(__dirname, '..', "upload.html"));
+    // res.sendFile(path.join(__dirname, '..', "upload.html"));
+    const filePath = path.join(__dirname, '..', 'public', 'images');    
+    fs.readdir(filePath, (err, files) => {
+        if(err) {
+            res.status(500);
+            throw new Error("Unable to fetch images.");
+        }
+        // files.forEach(file => {
+        //     console.log(file);
+        // });
+        res.status(200).json(files);
+    });    
 });
 
 // @desc    Upload the files
 // @route   POST /upload
 // @access  Public (for now)
 const postUpload = asyncHandler(async (req, res) => {
-    // const user = await User.findById(req.user.id);
-    // if(!user) {
-    //     res.status(401);
-    //     throw new Error("User not found")
-    // }
+    const user = await User.findById(req.user.id);
+    if(!user) {
+        res.status(401);
+        throw new Error("User not found")
+    }
+
     const files = req.files;
     Object.keys(files).forEach(key => {
         const filePath = path.join(__dirname, '..', 'public', 'images', files[key].name);

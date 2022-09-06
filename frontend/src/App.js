@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import { Container } from 'react-bootstrap';
 import 'react-toastify/dist/ReactToastify.css';
 import { Header, PrivateRoute, NotFound } from './components';
-import { Home, Login, Register } from './pages';
+import { Home, Login, Register, Images } from './pages';
 import { Category, CategoryAdd, CategoryEdit, CategoryDetail } from './pages/category';
 import { Variable, VariableAdd, VariableEdit, VariableDetail } from './pages/variable';
 import { Operation, OperationAdd, OperationEdit, OperationDetail } from './pages/operation';
@@ -61,8 +61,11 @@ function App() {
 							<Route path=":id" element={<TargetDetail />} />
 							<Route path=":id/edit" element={<TargetEdit />} />
 							<Route path=":id/detail" element={<TargetDetail />} />
-						</Route>						
+						</Route>
 					</Route>
+					<Route path='/images' element={<PrivateRoute />} >
+						<Route path='/images' element={<Images />} />
+					</Route>					
 					<Route path='login' element={<Login />} />
 					<Route path='register' element={<Register />} />
 					<Route path="*" element={<NotFound />} />

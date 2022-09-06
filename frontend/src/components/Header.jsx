@@ -12,6 +12,7 @@ import { TbMathSymbols } from 'react-icons/tb';
 import { GiWantedReward } from 'react-icons/gi';
 import { FiTarget } from 'react-icons/fi';
 import { SiCondaforge } from 'react-icons/si';
+import { BsImages } from 'react-icons/bs';
 
 function Header() {
     const navigate = useNavigate();
@@ -39,6 +40,7 @@ function Header() {
                     <Nav.Link eventKey="4" as={Link} to='operation' ><TbMathSymbols size={25} /> Operation</Nav.Link>
                     <Nav.Link eventKey="5" as={Link} to='reward'    ><GiWantedReward size={25} /> Reward</Nav.Link>
                     <Nav.Link eventKey="6" as={Link} to='target'    ><FiTarget size={25} /> Target</Nav.Link>
+                    <Nav.Link eventKey="7" as={Link} to='images'    ><BsImages size={25} /> Images</Nav.Link>
                 </Nav>         
             ) : (
                 <Nav className="me-auto" variant="pills" >

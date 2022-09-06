@@ -4,3 +4,5 @@ export { default as Home } from './Home';
 export { default as Login } from './Login';
 // eslint-disable-next-line
 export { default as Register } from './Register';
+// eslint-disable-next-line
+export { default as Images } from './Images';
