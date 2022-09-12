@@ -12,11 +12,11 @@ const PORT = process.env.PORT || 6001;
 connectDB();
 
 const app = express();
-app.use(express.json());
+app.use(express.json({limit: '1MB'}));
 app.use(express.urlencoded({extended: true}));
 app.use("public", express.static(publicFolder));
 app.use(cors({
-    origin: ['https://vinashu.github.io/codex-game', 'https://vinashu.github.io']
+    origin: ['https://vinashu.github.io/forge-game', 'https://vinashu.github.io']
 }));
 
 // Routes

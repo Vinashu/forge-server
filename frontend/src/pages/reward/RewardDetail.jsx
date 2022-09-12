@@ -69,14 +69,14 @@ function RewardDetail() {
                     {isLoading ? (<Spinner />) : <h2>{reward?.name}</h2>}
                     {isLoading ? (<Spinner />) : <div className="reward-editor" dangerouslySetInnerHTML={{__html: reward.description}}></div>}
                 <div>
-                    <strong>image: </strong> 
-                    {isLoading ? (<Spinner />) : reward?.imagePath}
+                    {reward?.imagePath && <strong>image: </strong> }
+                    {/* {isLoading ? (<Spinner />) : reward?.imagePath} */}
                 </div>
                 <div>
                     {reward?.imagePath && <img className='center' src={reward?.imagePath} alt={reward?.name} />}
                 </div>
                 <div>
-                    <strong>category: </strong> 
+                    {reward?.category?.length > 0 && <strong>category: </strong> }
                     {isLoading ? (<Spinner />) : (
                         <div>
                             {reward?.category?.map((category) => {                                

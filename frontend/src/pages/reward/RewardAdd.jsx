@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -12,6 +12,7 @@ import { FiSave } from 'react-icons/fi';
 import { GiCancel } from 'react-icons/gi';
 
 function RewardAdd() {
+    const quill = useRef();
     const [editor, setEditor] = useState('');
     const { categories } = useSelector((state) => state.category);
     const { isSuccess, isError, message } = useSelector((state) => state.reward);
@@ -60,14 +61,14 @@ function RewardAdd() {
 
     const onSave = (e) => {
         e.preventDefault();   
-
         const data = {
             name,
             description: editor,
             imagePath,
             category
         };
-
+        // console.log(editor);
+        // console.log(quill.current.editor.getContents());
         dispatch(create(data));
     };    
 
@@ -131,6 +132,7 @@ function RewardAdd() {
                             onChange={setEditor}
                             modules={modules}
                             formats={formats}
+                            ref={quill}
                         />
                         {/* <Form.Control
                             id="description" 

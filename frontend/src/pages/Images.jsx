@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import { Button, Form, InputGroup, ProgressBar, Alert, Row, Col, Card } from 'react-bootstrap'
 import { BsCloudUpload } from 'react-icons/bs';
@@ -134,9 +135,9 @@ function Images() {
                 !isLoading && 
                 <Row xs={1} sm={2} md={3} lg={5} xl={6} xxl={8} className="g-4">
                 {images.length > 0 && images.map((image) => (
-                    <Col>
-                        <Card key={image}>
-                            <Card.Img key={image} variant="top" src={`images/${image}`}  style={{maxWidth: "303px", maxHeight: "160px", marginLeft: "auto", marginRight: "auto"}}/>
+                    <Col key={uuidv4()}>
+                        <Card >
+                            <Card.Img variant="top" src={`images/${image}`}  style={{maxWidth: "303px", maxHeight: "160px", marginLeft: "auto", marginRight: "auto"}}/>
                             <Card.Body>
                             {/* <Card.Title>{image}</Card.Title> */}
                             <Card.Text>{image}</Card.Text>

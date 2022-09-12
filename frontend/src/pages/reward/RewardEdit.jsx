@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
@@ -12,6 +12,7 @@ import { FiSave } from 'react-icons/fi';
 import { GiCancel } from 'react-icons/gi';
 
 function RewardEdit() {
+    const quill = useRef();    
     const [editor, setEditor] = useState('');
     const { id } = useParams();
     const navigate = useNavigate();
@@ -77,7 +78,8 @@ function RewardEdit() {
             imagePath,
             category
         };
-
+        // console.log(editor);
+        // console.log(quill.current.editor.getContents());
         dispatch(update(data));
         navigate(`/reward/${_id}/detail`);        
     };    
@@ -146,7 +148,8 @@ function RewardEdit() {
                             value={editor}
                             onChange={setEditor}
                             modules={modules}
-                            formats={formats}                            
+                            formats={formats}
+                            ref={quill}                            
                         />                        
                         {/* <Form.Control
                             id="description" 
