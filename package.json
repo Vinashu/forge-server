@@ -26,7 +26,7 @@
     "express-async-handler": "^1.2.0",
     "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.5.2"
+    "mongoose": "^6.11.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
